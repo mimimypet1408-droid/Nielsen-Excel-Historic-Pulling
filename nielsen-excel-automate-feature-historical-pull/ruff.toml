@@ -1,0 +1,39 @@
+target-version = "py313"
+builtins = []
+extend-exclude = [
+    "__pycache__",
+    ".pytest_cache",
+    "migrations",
+]
+line-length = 100
+
+[lint]
+select = [
+    "C",
+    "E",
+    "F",
+    "W"
+]
+ignore = [
+    # Begin -- ruff recommends disabling this if using the formatter in
+    # addition to the linter (https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules)
+    "E111",
+    "E114",
+    "E117",
+    "E501",
+    # End -- ruff recommends disabling this if using the formatter in
+    # addition to the linter
+]
+
+[lint.mccabe]
+max-complexity = 10
+
+[lint.per-file-ignores]
+"__init__.py" = [
+    "F401",
+    "F403",
+]
+
+[format]
+quote-style = "double"
+indent-style = "space"
